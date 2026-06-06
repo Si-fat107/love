@@ -1589,6 +1589,19 @@ fetch(
 
     }
 
+    window.addEventListener("load", () => {
+
+  document
+    .querySelectorAll(".collection-img")
+    .forEach(img => {
+
+      const preload = new Image();
+      preload.src = img.src;
+
+    });
+
+});
+
     /* close */
     function closeImage() {
 
@@ -1662,6 +1675,8 @@ function showAlert(message){
 function closeAlert(){
   document.getElementById("customAlert").style.display = "none";
 }
+
+
 
   </script>
 
