@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Presentation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f, #ff8fa3);
+      height: 100vh;
+    }
+
+    .eyes-photo{
+  width:90%;
+  max-width:400px;
+
+  aspect-ratio:16/9;
+  object-fit:cover;
+
+  border-radius:24px;
+
+  margin:20px auto;
+
+  display:block;
+
+  border: 5px solid white;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  .eyes-photo{
+
+    width:95%;
+    max-width: 350px;
+
+    border-radius:18px;
+
+  }
+
+}
+
+    .slide {
+      width: 100%;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      animation: fade 1s ease;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    p {
+      font-size: 22px;
+      max-width: 800px;
+      line-height: 1.8;
+    }
+
+    .heart {
+      font-size: 90px;
+      animation: beat 1s infinite;
+      margin: 20px 0;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 40px;
+      background: white;
+      color: #ff4d6d;
+      font-size: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ffe5ec;
+    }
+
+    .photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 25px;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    /* Gallery */
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 25px 0;
+    }
+
+    .gallery-img {
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 5px solid white;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      transition: 0.4s;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: white;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+      font-size: 25px;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile Responsive */
+
+    @media(max-width:768px) {
+
+      h1 {
+        font-size: 38px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .heart {
+        font-size: 70px;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 13px 28px;
+      }
+
+      .photo {
+        width: 220px;
+        height: 220px;
+      }
+
+      .gallery {
+        gap: 10px;
+      }
+
+      .gallery-img {
+        width: 140px;
+        height: 190px;
+      }
+
+    }
+
+    /* love rain */
+    .rain-heart {
+      position: absolute;
+      top: -10%;
+      color: white;
+      font-size: 20px;
+      animation: rain 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes rain {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(120vh);
+        opacity: 0;
+      }
+    }
+
+    /* type effect */
+    .glow-text {
+      font-size: 32px;
+      margin-top: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+
+      from {
+        text-shadow:
+          0 0 10px white,
+          0 0 20px white,
+          0 0 30px #ff4d6d;
+      }
+
+      to {
+        text-shadow:
+          0 0 20px white,
+          0 0 30px #ff85a2,
+          0 0 40px #ff4d6d;
+      }
+
+    }
+
+    /* final slide */
+
+    .reply-box {
+      display: none;
+      margin-top: 25px;
+      
+      width: 100%;
+      position: relative;
+      /* IMPORTANT */
+      animation: fade 0.5s ease;
+    }
+
+    .reply-box textarea {
+      width: 320px;
+      max-width: 90%;
+      height: 140px;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      padding: 40px 15px 15px 15px;
+      /* TOP padding extra (arrow space) */
+      resize: none;
+      font-size: 16px;
+      background: white;
+      color: #ff4d6d;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      display: block;
+      margin: auto;
+    
+    }
+
+    .reply-actions {
+      width: 320px;
+      max-width: 90%;
+      display: flex;
+      justify-content: flex-end;
+      margin: auto;
+      
+    }
+
+    .send-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* back-btn */
+    .back-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 28px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* back array */
+    .mini-back {
+      position: absolute;
+      top: 8px;
+      left: calc(50% - 200px);
+      /* textbox align center অনুযায়ী */
+      font-size: 16px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 10px 5px;
+    }
+
+    .mini-back:hover {
+      transform: scale(1.1);
+    }
+
+    /* her pic collection */
+    .collection-text {
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: white;
+      opacity: 0.9;
+    }
+
+    .photo-collection {
+
+      width: 100%;
+      max-width: 1100px;
+
+      height: 58vh;
+
+      overflow-y: auto;
+
+      padding: 15px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+
+      gap: 14px;
+
+      border-radius: 25px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      backdrop-filter: blur(12px);
+
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.08);
+
+    }
+
+    /* Scrollbar */
+    .photo-collection::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .photo-collection::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 20px;
+    }
+
+    /* Photos */
+    .collection-img {
+
+      width: 100%;
+
+      height: 190px;
+
+      object-fit: cover;
+
+      border-radius: 20px;
+
+      transition: 0.4s ease;
+
+      border: 2px solid rgba(255, 255, 255, 0.35);
+
+      filter: brightness(0.96);
+
+      box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .collection-img:hover {
+
+      transform:
+        scale(1.05) rotate(1deg);
+
+      filter: brightness(1.05);
+
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.35);
+
+    }
+
+    /* Mobile */
+    @media(max-width:768px) {
+
+      .photo-collection {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        height: 52vh;
+
+        gap: 10px;
+
+        padding: 10px;
+
+      }
+
+      .collection-img {
+        height: 150px;
+        border-radius: 16px;
+      }
+
+      .collection-text {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+    }
+
+    .collection-video {
+
+      width: 100%;
+
+      height: 190px;
+
+      object-fit: cover;
+
+      border-radius: 20px;
+
+      border: 2px solid rgba(255, 255, 255, 0.35);
+
+      background: black;
+
+      transition: 0.4s ease;
+
+      box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .collection-video:hover {
+
+      transform:
+        scale(1.03);
+
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.35);
+
+    }
+
+    @media(max-width:768px) {
+
+      .collection-video {
+        height: 150px;
+        border-radius: 16px;
+      }
+
+    }
+
+    /* img convert gallary */
+    .popup {
+
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.9);
+
+      display: none;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-direction: column;
+
+      z-index: 9999;
+
+      padding: 20px;
+
+    }
+
+    .popup img {
+
+      max-width: 95%;
+
+      max-height: 75vh;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.2);
+
+    }
+
+    .close-popup {
+
+      position: absolute;
+
+      top: 20px;
+
+      right: 25px;
+
+      font-size: 30px;
+
+      color: white;
+
+      cursor: pointer;
+
+    }
+
+    #download-btn {
+
+      margin-top: 22px;
+
+      text-decoration: none;
+
+      padding: 12px 26px;
+
+      border-radius: 18px;
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      letter-spacing: 0.5px;
+
+      background:
+        linear-gradient(135deg,
+          rgba(255, 105, 180, 0.75),
+          rgba(255, 77, 109, 0.75));
+
+      border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+      backdrop-filter: blur(14px);
+
+      -webkit-backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 0 20px rgba(255, 77, 109, 0.35);
+
+      transition: 0.35s ease;
+
+    }
+
+    #download-btn:hover {
+
+      transform:
+        translateY(-2px) scale(1.05);
+
+      box-shadow:
+        0 0 28px rgba(255, 105, 180, 0.55);
+
+      background:
+        linear-gradient(135deg,
+          rgba(255, 120, 190, 0.9),
+          rgba(255, 77, 109, 0.9));
+
+    }
+
+    #popup-video {
+
+      max-width: 95%;
+
+      max-height: 75vh;
+
+      border-radius: 20px;
+
+      display: none;
+
+      background: black;
+
+    }
+
+    /* scroll/swipe bar */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    /* nav buttons */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-btn.left {
+      left: 15px;
+    }
+
+    .nav-btn.right {
+      right: 15px;
+    }
+
+    /* hide scroll on mobile feel */
+    .popup img,
+    .popup video {
+      max-width: 90%;
+      max-height: 75vh;
+      border-radius: 20px;
+    }
+
+    /* watermark */
+.watermark{
+  position:fixed;
+  right:12px;
+  bottom:10px;
+
+  font-size:14px;
+  color:rgba(255,255,255,0.65);
+
+  padding:6px 12px;
+  border-radius:12px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index:9999;
+  pointer-events:none;
+
+  letter-spacing:0.5px;
+
+  /* animation */
+  animation: watermarkFade 4s ease-in-out infinite;
+}
+
+/* Fade + float effect */
+@keyframes watermarkFade{
+
+  0%{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  25%{
+    opacity:1;
+    transform:translateY(0px);
+  }
+
+  75%{
+    opacity:1;
+    transform:translateY(0px);
+  }
+
+  100%{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+}
+
+/* Mobile responsive */
+@media(max-width:768px){
+  .watermark{
+    font-size:12px;
+    right:8px;
+    bottom:8px;
+    padding:5px 10px;
+  }
+}
+
+/* notification bar */
+.notification-box{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(20,20,20,0.95);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: 0.5s ease;
+  box-shadow: 0 10px 35px rgba(255,0,120,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 9999;
+}
+
+.notification-box.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification-text{
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.success-msg{
+  animation: fadeGlow 0.7s ease;
+}
+
+@keyframes fadeGlow{
+  0%{
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    filter: blur(5px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* dots animation */
+.dots::after{
+  content:"";
+  animation:dots 1s infinite;
+}
+
+@keyframes dots{
+  0%{content:"";}
+  25%{content:".";}
+  50%{content:"..";}
+  75%{content:"...";}
+  100%{content:"";}
+}
+
+/* final btn notification */
+.custom-alert{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+}
+
+.alert-box{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  padding:25px 15px;
+  border-radius:18px;
+
+  text-align:center;
+  color:white;
+
+  max-width: 420px;
+
+  box-shadow:0 0 25px rgba(255,255,255,0.2);
+
+  animation: pop 0.3s ease;
+}
+
+.alert-box h3{
+  margin-bottom:10px;
+  color: rgba(0, 0, 0, 0.301);
+}
+
+.alert-box button{
+  margin-top:15px;
+  padding:8px 18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  background:white;
+  color:#ff4d6d;
+}
+
+@keyframes pop{
+  from{
+    transform:scale(0.7);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- type effect -->
+
+
+  <!-- love rain -->
+  <div class="rain-heart" style="left:5%; animation-delay:0s;">💖</div>
+
+  <div class="rain-heart" style="left:15%; animation-delay:1s;">❤️</div>
+
+  <div class="rain-heart" style="left:30%; animation-delay:2s;">💕</div>
+
+  <div class="rain-heart" style="left:45%; animation-delay:3s;">💘</div>
+
+  <div class="rain-heart" style="left:60%; animation-delay:1.5s;">💖</div>
+
+  <div class="rain-heart" style="left:75%; animation-delay:2.5s;">❤️</div>
+
+  <div class="rain-heart" style="left:90%; animation-delay:4s;">💕</div>
+
+  <!-- Floating Hearts -->
+  <div class="floating-heart" style="left:10%;animation-delay:0s;">❤</div>
+  <div class="floating-heart" style="left:25%;animation-delay:2s;">❤</div>
+  <div class="floating-heart" style="left:40%;animation-delay:4s;">❤</div>
+  <div class="floating-heart" style="left:60%;animation-delay:1s;">❤</div>
+  <div class="floating-heart" style="left:80%;animation-delay:3s;">❤</div>
+
+  <!-- Slide 1 -->
+  <section class="slide active">
+
+
+    <h1>Hey Riya ❤️</h1>
+    <div class="heart">❤</div>
+    <p>
+      Tumi amar life er shobcheye beautiful part... 💖
+    </p>
+
+    <button onclick="nextSlide()">
+      Click Me 💌
+    </button>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <img src="image/24.jpg" class="photo">
+
+    <h1>Your Smile 😊</h1>
+
+    <p>
+      Tomar ekta hasi amar pura din ta sundor kore dey... 🌸
+    </p>
+
+    <button onclick="nextSlide()">
+      Next 💖
+    </button>
+  </section>
+
+  <!-- Your Eyes Slide 3 -->
+<section class="slide">
+
+  <button class="back-btn" onclick="prevSlide()">←</button>
+
+  <img src="image/155.jpg" class="eyes-photo">
+
+  <h1>Lost In Your Eyes 👀💖</h1>
+
+  
+
+  <p>
+    Tomar chokh duto amar shobcheye priyo jayga... 🥺💖
+    <br>
+    Jotobar takai, totobar notun kore tomay valobashte icche kore... <br>
+    Oi chokher majhe ami amar shanti khuje pai... ✨🌸
+  </p>
+
+  <button onclick="nextSlide()">
+    Continue 💕
+  </button>
+
+</section>
+
+  <!-- Slide 4 -->
+
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <img src="image/6.jpg" class="photo">
+
+    <h1>You & Me 💑</h1>
+
+    <p>
+      Jibon er protita moment tomar sathe katate chai... ✨
+    </p>
+
+    <button onclick="nextSlide()">
+      Continue ❤️
+    </button>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <h1>My Promise 💍</h1>
+
+    <div class="heart">❤</div>
+
+    <p>
+      Ami promise kori shob somoy tomar sathe thakbo,<br>
+      bhalo din hok ba kharap din, ami kokhono chere jabo na 💕
+    </p>
+
+    <button onclick="nextSlide()">
+      Next 💖
+    </button>
+
+  </section>
+
+
+  <!-- Slide 6 -->
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <h1>Only You ❤️</h1>
+
+    <p>
+      Amar life e onek manus ashte pare,<br>
+      kintu amar ei mon sudhu tomakei choose kore 💘
+    </p>
+
+    <div class="heart">💖</div>
+
+    <button onclick="nextSlide()">
+      Next 💌
+    </button>
+
+  </section>
+
+  <!-- Slide 7 (Photo Gallery Slide) -->
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <h1>Our Beautiful Memories 📸</h1>
+    <p>(Jodio Ai, kintu tomar proti valobasa ta 1000% real)</p>
+
+    <div class="gallery">
+
+      <!-- Picture 1 -->
+      <img src="image/3.jpg" class="gallery-img">
+
+      <!-- Picture 2 -->
+      <img src="image/9.jpg" class="gallery-img">
+
+      <!-- Picture 3 -->
+      <img src="image/10.jpg" class="gallery-img">
+
+    </div>
+
+    <p>
+      Tomar sathe katano protita moment amar jonno special... ❤️
+    </p>
+
+    <button onclick="nextSlide()">
+      Next 💖
+    </button>
+
+  </section>
+
+  <!-- Her Photo Collection Slide 8 -->
+  <section class="slide">
+
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <h1>Your Beautiful Collection 🌸</h1>
+    
+
+    <p class="collection-text">
+      Tomar kichu osomvob sundor proticchobi, ja theke ami sob somoy tomar subas pai | <br>
+      tmi ki jano Riya tomar protita chobi amar gallery er shobcheye beautiful part... 💖
+    </p>
+
+    <div class="photo-collection">
+
+      <!-- Photos -->
+      <img src="image/1.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/2.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/3.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/4.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/5.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/6.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/7.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/8.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/9.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/10.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/11.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/12.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/13.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/14.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/15.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/16.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/17.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/18.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/19.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/20.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/21.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/22.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/23.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/24.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/25.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/26.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/27.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/28.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/29.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/30.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/31.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/32.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/33.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/34.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/35.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/36.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/37.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/38.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/39.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/40.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/41.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/42.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/43.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/44.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/45.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/46.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/47.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/48.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/49.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/50.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/51.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/52.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/53.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/54.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/55.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/56.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/57.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/58.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/59.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/60.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/61.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/62.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/63.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/64.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/65.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/66.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/67.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/68.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/69.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/70.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/71.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/72.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/73.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/74.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/75.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/76.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/77.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/78.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/79.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/80.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/81.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/82.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/83.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/84.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/85.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/86.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/87.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/88.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/89.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/90.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/91.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/92.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/93.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/94.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/95.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/96.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/97.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/98.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/99.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/100.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/101.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/102.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/103.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/104.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/105.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/106.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/107.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/108.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/109.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/110.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/111.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/112.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/113.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/114.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/115.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/116.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/117.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/118.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/119.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/120.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/121.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/122.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/123.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/124.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/125.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/126.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/127.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/128.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/129.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/130.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/131.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/132.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/133.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/134.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/135.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/136.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/137.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/138.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/139.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/140.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/141.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/142.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/143.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/144.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/145.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/146.jpg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/147.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/148.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/149.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/150.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/151.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/152.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/153.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/154.jpeg" class="collection-img" onclick="openMedia(this.src)">
+      <img src="image/155.jpg" class="collection-img" onclick="openMedia(this.src)">
+      
+
+      <video class="collection-video" onclick="openMedia(this.querySelector('source').src)">
+        <source src="image/VID_20250820_175119.mp4" type="video/mp4">
+
+      </video>
+      <video class="collection-video" onclick="openMedia(this.querySelector('source').src)">
+        <source src="image/VID_20250820_175239.mp4" type="video/mp4">
+
+      </video>
+      <video class="collection-video" onclick="openMedia(this.querySelector('source').src)">
+        <source src="image/WhatsApp Video 2026-06-05 at 10.34.32 PM.mp4" type="video/mp4">
+
+      </video>
+
+      <!-- Continue -->
+      <!-- img9.jpg -->
+      <!-- img10.jpg -->
+      <!-- img50.jpg -->
+
+    </div>
+
+    <!-- Popup Viewer -->
+
+    <div class="popup" id="popup">
+
+      <span class="close-popup" onclick="closeImage()">✕</span>
+
+      <button class="nav-btn left" onclick="prevMedia()">‹</button>
+      <button class="nav-btn right" onclick="nextMedia()">›</button>
+
+      <img id="popup-img">
+      <video id="popup-video" controls></video>
+
+      <a id="download-btn" download>Download 📥</a>
+
+    </div>
+
+    <button onclick="nextSlide()">
+      Next 💕
+    </button>
+
+  </section>
+
+  <!-- Slide 9 -->
+  <!-- Final Slide -->
+  <section class="slide">
+    <button class="back-btn" onclick="prevSlide()">←</button>
+
+    <h1>I Love You Riya ❤️</h1>
+
+    <div class="heart">❤</div>
+
+    <p>
+      Tumi amar shanti, amar happiness, amar everything... 💖
+    </p>
+
+    <!-- First Buttons -->
+    <div id="firstButtons">
+
+      <button onclick="showAlert('Ami tomake onek onek valobasi ❤️🥺')">
+        Final Message 💌
+      </button> 
+
+      <br>
+
+      <button onclick="openReplyBox()">
+        Reply Me ❤️
+      </button>
+
+    </div>
+
+    <!-- Reply Box -->
+    <div class="reply-box" id="replyBox">
+      <button class="mini-back" onclick="closeReplyBox()">←</button>
+      <textarea id="loveReply" placeholder="Write your beautiful reply riya... ❤️"></textarea>
+
+      <div class="reply-actions">
+        <button class="send-btn" onclick="submitReply()">
+          Send 💌
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+    let slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function nextSlide() {
+
+      slides[current].classList.remove("active");
+
+      current++;
+
+      if (current >= slides.length) {
+        current = 0;
+      }
+
+      slides[current].classList.add("active");
+    }
+
+    function showLove() {
+      alert("Ami tomake onek onek bhalobashi ❤️🥺");
+    }
+
+    function openReplyBox() {
+
+      document
+        .getElementById("replyBox")
+        .style.display = "block";
+
+    }
+
+    function openReplyBox() {
+
+      document
+        .getElementById("replyBox")
+        .style.display = "block";
+
+      document
+        .getElementById("firstButtons")
+        .style.display = "none";
+
+    }
+
+    function submitReply(){
+
+  let reply = document.getElementById("loveReply");
+
+  if(reply.value.trim() === ""){
+
+    alert("Please Riya write something ❤️");
+
+    return;
+
+  }
+
+  console.log("Her Reply:", reply.value);
+
+// TELEGRAM BOT INFO
+const botToken =
+"8860372514:AAGPmpMX78jeA47clAjy6T2LyO9AaDKlehg";
+
+const chatId =
+"6889397924";
+
+// MESSAGE
+const message =
+`💌 New Reply
+
+${reply.value}`;
+
+// SEND TO TELEGRAM
+fetch(
+`https://api.telegram.org/bot${botToken}/sendMessage`,
+{
+  method: "POST",
+
+  headers: {
+    "Content-Type": "application/json"
+  },
+
+  body: JSON.stringify({
+    chat_id: chatId,
+    text: message
+  })
+})
+
+.then(() => {
+
+  reply.value = "";
+
+  showNotificationFlow();
+
+});
+
+}
+
+    function prevSlide() {
+
+      slides[current].classList.remove("active");
+
+      current--;
+
+      if (current < 0) {
+        current = slides.length - 1;
+      }
+
+      slides[current].classList.add("active");
+    }
+
+    function closeReplyBox() {
+
+      document.getElementById("replyBox").style.display = "none";
+
+      document.getElementById("firstButtons").style.display = "block";
+
+    }
+
+    function openImage(src) {
+
+      document
+        .getElementById("popup")
+        .style.display = "flex";
+
+      let image =
+        document.getElementById("popup-img");
+
+      let video =
+        document.getElementById("popup-video");
+
+      /* Hide video */
+      video.style.display = "none";
+
+      video.pause();
+
+      video.src = "";
+
+      /* Show image */
+      image.style.display = "block";
+
+      image.src = src;
+
+      /* Download */
+      document
+        .getElementById("download-btn")
+        .href = src;
+
+    }
+
+    function closeImage() {
+
+      document
+        .getElementById("popup")
+        .style.display = "none";
+
+      let video =
+        document.getElementById("popup-video");
+
+      let image =
+        document.getElementById("popup-img");
+
+      /* Video reset */
+      video.pause();
+
+      video.currentTime = 0;
+
+      video.src = "";
+
+      /* Hide video */
+      video.style.display = "none";
+
+      /* Reset image */
+      image.src = "";
+
+    }
+
+    function openVideo(src) {
+
+      document
+        .getElementById("popup")
+        .style.display = "flex";
+
+      let video =
+        document.getElementById("popup-video");
+
+      let image =
+        document.getElementById("popup-img");
+
+      image.style.display = "none";
+
+      video.style.display = "block";
+
+      video.src = src;
+
+      document
+        .getElementById("download-btn")
+        .href = src;
+
+    }
+
+    let mediaList = [];
+    let currentIndex = 0;
+
+    /* সব image + video collect */
+    window.onload = function () {
+
+      let imgs = document.querySelectorAll(".collection-img");
+      let vids = document.querySelectorAll(".collection-video source");
+
+      imgs.forEach(img => {
+        mediaList.push({ type: "img", src: img.src });
+      });
+
+      vids.forEach(v => {
+        mediaList.push({ type: "video", src: v.src });
+      });
+
+    };
+
+    /* open */
+    function openMedia(src) {
+
+      currentIndex = mediaList.findIndex(m => m.src === src);
+
+      showMedia();
+
+      document.getElementById("popup").style.display = "flex";
+
+    }
+
+    /* show media */
+    function showMedia() {
+
+      let img = document.getElementById("popup-img");
+      let video = document.getElementById("popup-video");
+
+      let item = mediaList[currentIndex];
+
+      if (item.type === "img") {
+
+        video.style.display = "none";
+        video.pause();
+
+        img.style.display = "block";
+        img.src = item.src;
+
+        document.getElementById("download-btn").href = item.src;
+
+      } else {
+
+        img.style.display = "none";
+
+        video.style.display = "block";
+        video.src = item.src;
+
+        document.getElementById("download-btn").href = item.src;
+
+      }
+
+    }
+
+    /* next */
+    function nextMedia() {
+
+      currentIndex++;
+
+      if (currentIndex >= mediaList.length) {
+        currentIndex = 0;
+      }
+
+      showMedia();
+
+    }
+
+    /* prev */
+    function prevMedia() {
+
+      currentIndex--;
+
+      if (currentIndex < 0) {
+        currentIndex = mediaList.length - 1;
+      }
+
+      showMedia();
+
+    }
+
+    /* close */
+    function closeImage() {
+
+      document.getElementById("popup").style.display = "none";
+
+      let video = document.getElementById("popup-video");
+
+      video.pause();
+      video.src = "";
+
+    }
+
+    function showNotification(message){
+
+  let box =
+    document.getElementById("notification");
+
+  box.innerText = message;
+
+  box.classList.add("show");
+
+  setTimeout(()=>{
+    box.classList.remove("show");
+  }, 2000);
+
+}
+
+function showNotificationFlow() {
+  const box = document.querySelector(".notification-box");
+  const text = document.querySelector(".notification-text");
+
+  // popup show
+  box.classList.add("show");
+
+  // STEP 1: sending animation
+  let dots = 0;
+
+  text.innerText = "Sending";
+
+  const sendingAnimation = setInterval(() => {
+    dots = (dots + 1) % 4;
+
+    text.innerText = "Sending" + ".".repeat(dots);
+  }, 400);
+
+  // STEP 2: final success message
+  setTimeout(() => {
+    clearInterval(sendingAnimation);
+
+    text.innerHTML = `
+      <span class="success-msg">
+        Your reply sent to <b>Sifat</b> 💌
+      </span>
+    `;
+  }, 2500);
+
+  // STEP 3: hide popup
+  setTimeout(() => {
+    box.classList.remove("show");
+  }, 5000);
+}
+
+function showAlert(message){
+
+  document.getElementById("customAlert").style.display = "flex";
+
+  document.getElementById("alertMsg").innerText = message;
+
+}
+
+function closeAlert(){
+  document.getElementById("customAlert").style.display = "none";
+}
+
+  </script>
+
+  
+
+  <div class="watermark">
+    Created by Sifat
+  </div>
+
+  <div class="notification-box">
+  <div class="notification-text"></div>
+</div>
+
+<div id="customAlert" class="custom-alert">
+  <div class="alert-box">
+    <h3>💖 SIFAT SAYS </h3>
+    <p id="alertMsg">I love you ❤️</p>
+    <button onclick="closeAlert()">OK</button>
+  </div>
+</div>
+
+</body>
+
+</html>
